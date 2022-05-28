@@ -8,6 +8,19 @@
 
 > 有问题请开 issue 或者 discussions。
 
+## **请大家不要跑速度测试，请用 youtube 测试。**
+
+
+## Change log
+
+应需求，加上首页伪装，如果你有想法，请自己把想要的html放入到 项目html 文件，然后后续 action 部署会自动拿到。
+
+## !!!!!!! **对于老用户是 breaking change, 对ws 新加了path, 请注意查看客户端配置**
+
+## !!!!!!! **对于老用户是 breaking change, 对ws 新加了path, 请注意查看客户端配置**
+
+## !!!!!!! **对于老用户是 breaking change, 对ws 新加了path, 请注意查看客户端配置**
+
 首先查看别人的 [youtube 教程](https://www.youtube.com/watch?v=xHZyDsFYdvA)，了解怎么配置 v2ray-heroku。**本项目使用最新 VLESS 协议，请在客户端配置选择 VLESS**。  
 [详细 VLESS websocket 客户端配置](#vless-websocket-客户端配置) 。
 
@@ -34,7 +47,11 @@
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-> 貌似在这个 repo 下 点击 一键部署貌似heroku 提示违反某些原则，但是action 正常工作！！建议 fork 时候，项目名字，尽量不要带有 v2ray 关键字。
+> 貌似在这个 repo 下 点击 一键部署貌似 heroku 提示违反某些原则，但是action 正常工作！！建议 fork 时候，项目名字，尽量不要带有 v2ray 关键字。
+
+> 如果被heroku 提示错误，请用 github action 来部署。
+
+> 部署成功后，可以先用浏览器访问 ***.herokuapp.com， 查看页面是否能正常访问。
 
 ## Github Actions 管理
 
@@ -184,6 +201,9 @@ https://github.com/badafans/better-cloudflare-ip
             },
             "streamSettings": {
                 "network": "ws",
+                "wsSettings": {
+                    "path": "/ws"  // 这里是新加的
+                },
                 "security": "tls",
                 "tlsSettings": {
                     "serverName": "***.herokuapp.com" // heroku app host 或者 cloudflare worker host
@@ -194,6 +214,8 @@ https://github.com/badafans/better-cloudflare-ip
 ```
 
 ### v2rayN
+
+path 是 **/ws**
 
 换成 [V2rayN](https://github.com/2dust/v2rayN)
 
